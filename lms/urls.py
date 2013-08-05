@@ -2,6 +2,7 @@ from django.conf import settings
 from django.conf.urls import patterns, include, url
 from ratelimitbackend import admin
 from django.conf.urls.static import static
+import waffle
 
 import django.contrib.auth.views
 
@@ -58,6 +59,9 @@ urlpatterns = ('',  # nopep8
     url(r'^heartbeat$', include('heartbeat.urls')),
 
     url(r'^user_api/', include('user_api.urls')),
+
+    # For Waffle in JS
+    url(r'^', include('waffle.urls')),
 )
 
 js_info_dict = {
