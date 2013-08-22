@@ -52,6 +52,12 @@ def save_item(request):
     # little smarter and able to pass something more akin to {unset: [field, field]}
     item_location = request.POST['id']
 
+    try:
+        old_item = modulestore().get_item(item_location)
+    except (ItemNotFoundError, InvalidLocationError):
+        log.error("Can't find item by location.")
+        return JsonResponse()
+
     # check permissions for this user within this course
     if not has_access(request.user, item_location):
         raise PermissionDenied()
@@ -96,13 +102,13 @@ def save_item(request):
         store.update_metadata(item_location, own_metadata(existing_item))
 
     try:
-        item = modulestore().get_item(item_location)
+        new_item = modulestore().get_item(item_location)
     except (ItemNotFoundError, InvalidLocationError):
         log.error("Can't find item by location.")
-        return False
+        return JsonResponse()
 
-    if item.category == 'video':
-        manage_video_subtitles(item)
+    if new_item.category == 'video':
+        manage_video_subtitles(old_item, new_item)
 
     return JsonResponse()
 
@@ -250,12 +256,8 @@ def upload_subtitles(request):
     }
 
     if any(speed_subs.values()):
-        status = generate_subs_from_source(
-            speed_subs,
-            source_subs_ext,
-            source_subs_filedata,
-            item)
-
+        log.error("We don't support uploading subs for Youtube video modules.")
+        return False
     elif any(item.html5_sources):
         sub_attr = slugify(source_subs_name)
 
