@@ -19,12 +19,8 @@ def url_class(is_active):
   <div class="inner-wrapper">
     <ol class="course-tabs">
       % for tab in get_course_tabs(user, course, active_page, request):
-        % if waffle.flag_is_active(request, 'Visual Treatment Group') or waffle.flag_is_active(request, 'Tab Merge Group'):
-          % if tab.name == "Courseware" or tab.name == "Course Content":
-            <li class="prominent">
-          % else:
-            <li>
-          % endif
+        % if waffle.flag_is_active(request, 'visual_treatment') or waffle.flag_is_active(request, 'merge_course_tabs'):
+          <li class="${"prominent" if tab.name in ("Courseware", "Course Content") else ""}">
         % else:
           <li>
         % endif

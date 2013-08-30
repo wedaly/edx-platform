@@ -59,7 +59,7 @@ TabImpl = namedtuple('TabImpl', 'validator generator')
 #####  Generators for various tabs.
 def _courseware(tab, user, course, active_page, request):
     link = reverse('courseware', args=[course.id])
-    if waffle.flag_is_active(request, 'Tab Merge Group'):
+    if waffle.flag_is_active(request, 'merge_course_tabs'):
         return [CourseTab('Course Content', link, active_page == "courseware")]
     else:
         return [CourseTab('Courseware', link, active_page == "courseware")]
@@ -300,20 +300,22 @@ def get_course_tabs(user, course, active_page, request):
     validate_tabs(course)
 
     tabs = []
-    for tab in course.tabs:
-        if waffle.flag_is_active(request, 'Tab Merge Group'):
-            if tab['type'] == "course_info":
-               continue
 
+    if waffle.flag_is_active(request, 'merge_course_tabs'):
+        course_tabs = [tab for tab in course.tabs if tab['type'] != "course_info"]
+    else:
+        course_tabs = course.tabs
+
+    for tab in course_tabs:
         # expect handlers to return lists--handles things that are turned off
         # via feature flags, and things like 'textbook' which might generate
         # multiple tabs.
         gen = VALID_TAB_TYPES[tab['type']].generator
 
+        gen_args = [tab, user, course, active_page]
         if tab['type'] == "courseware":
-            tabs.extend(gen(tab, user, course, active_page, request))
-        else:
-            tabs.extend(gen(tab, user, course, active_page))
+            gen_args.append(request)
+        tabs.extend(gen(*gen_args))
 
     # Instructor tab is special--automatically added if user is staff for the course
     if has_access(user, course, 'staff'):
@@ -353,7 +355,7 @@ def get_default_tabs(user, course, active_page, request):
 
     tabs.extend(_courseware({''}, user, course, active_page, request))
     
-    if not waffle.flag_is_active(request, 'Tab Merge Group'):
+    if not waffle.flag_is_active(request, 'merge_course_tabs'):
         tabs.extend(_course_info({'name': 'Course Info'}, user, course, active_page))
 
     if hasattr(course, 'syllabus_present') and course.syllabus_present:

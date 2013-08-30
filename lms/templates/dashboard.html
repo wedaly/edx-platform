@@ -164,7 +164,7 @@
 
         <article class="my-course">
           <%
-            if waffle.flag_is_active(request, 'Tab Merge Group'):
+            if waffle.flag_is_active(request, 'merge_course_tabs'):
               course_target = reverse('courseware', args=[course.id])
             else:
               course_target = reverse('info', args=[course.id])
