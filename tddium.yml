@@ -12,13 +12,13 @@ tddium:
       - requirements/edx/post.txt
       - package.json
       - Gemfile
-  #:mongodb:
-  #  :version: "2.4.7"
-  #:mysql:
-  #  :version: "5.5"
-  #:memcached:
-  #  :version: "1.4.7"
-  #:chrome:
+  :mongodb:
+    :version: "2.4.7"
+  :mysql:
+    :version: "5.5"
+  :memcached:
+    :version: "1.4.7"
+  :chrome:
   :tests:
     - paver test_lib
     #- paver test_lms
