@@ -1,6 +1,6 @@
 tddium:
   :python:
-    :requirements_file: "requirements/edx/solano.txt"
+    :pip_requirements_file: "requirements/edx/solano.txt"
   :cache:
     :key_paths:
       - requirements/edx/base.txt
