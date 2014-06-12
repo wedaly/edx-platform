@@ -1,6 +1,6 @@
 tddium:
   :hooks:
-    :pre_setup: "pip install -r requirements/edx/paver.txt && paver install_prereqs"
+    :pre_setup: "$HOME/python-env/bin/pip install -r requirements/edx/paver.txt && $HOME/python-env/bin/paver install_prereqs"
   :cache:
     :key_paths:
       - requirements/edx/base.txt
