@@ -11,8 +11,8 @@ tddium:
       - requirements/edx/local.txt
       - requirements/edx/post.txt
       - package.json
-  #:mongodb:
-  #  :version: "2.4.7"
+  :mongodb:
+    :version: "2.4.7"
   #:mysql:
   #  :version: "5.5"
   #:memcached:
