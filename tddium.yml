@@ -1,18 +1,27 @@
 tddium:
   :hooks:
-    :pre_setup: "pip install -r requirements/edx/paver.txt && paver install_prereqs"
+    :pre_setup:
+      pip install -r requirements/edx/pre.txt
+      pip install -r requirements/edx/base.txt
+      pip install -r requirements/edx/github.txt
+      pip install -r requirements/edx/local.txt
+      pip install -r requirements/edx/post.txt
+      pip install -r requirements/edx/paver.txt
   :cache:
     :key_paths:
-      - requirements/edx/
+      - requirements/edx/pre.txt
+      - requirements/edx/base.txt
+      - requirements/edx/github.txt
+      - requirements/edx/local.txt
+      - requirements/edx/post.txt
+      - requirements/edx/paver.txt
       - package.json
-      - Gemfile
   #:mongodb:
   #  :version: "2.4.7"
   #:mysql:
   #  :version: "5.5"
   #:memcached:
   #  :version: "1.4.7"
-  #:chrome:
   :python:
     :python_version: "2.7"
   :tests:
