@@ -1,20 +1,20 @@
 tddium:
   :hooks:
     :pre_setup:
+      pip install -r requirements/edx/paver.txt
       pip install -r requirements/edx/pre.txt
       pip install -r requirements/edx/base.txt
       pip install -r requirements/edx/github.txt
       pip install -r requirements/edx/local.txt
       pip install -r requirements/edx/post.txt
-      pip install -r requirements/edx/paver.txt
   :cache:
     :key_paths:
+      - requirements/edx/paver.txt
       - requirements/edx/pre.txt
       - requirements/edx/base.txt
       - requirements/edx/github.txt
       - requirements/edx/local.txt
       - requirements/edx/post.txt
-      - requirements/edx/paver.txt
       - package.json
   #:mongodb:
   #  :version: "2.4.7"
