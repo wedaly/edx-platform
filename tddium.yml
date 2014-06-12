@@ -1,6 +1,6 @@
 tddium:
   :hooks:
-    :worker_setup: "pip install -r requirements/edx/pre.txt"
+    :early: "pip install -r requirements/edx/pre.txt"
   :python:
     :python_version: 2.7
     :pip_requirements_file: "requirements/edx/solano.txt"
