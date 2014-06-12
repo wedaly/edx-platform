@@ -1,5 +1,6 @@
 tddium:
   :python:
+    :python_version: 2.7
     :pip_requirements_file: "requirements/edx/solano.txt"
   :cache:
     :key_paths:
