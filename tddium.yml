@@ -1,6 +1,6 @@
 tddium:
-  :hooks:
-    :pre_setup: "$HOME/python-env/bin/pip install -r requirements/edx/paver.txt && $HOME/python-env/bin/paver install_prereqs"
+  :python:
+    :requirements_file: "requirements/edx/solano.txt"
   :cache:
     :key_paths:
       - requirements/edx/base.txt
@@ -17,8 +17,6 @@ tddium:
   #:memcached:
   #  :version: "1.4.7"
   #:chrome:
-  :python:
-    :python_version: "2.7"
   :tests:
     - paver test_lib
     #- paver test_lms
