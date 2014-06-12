@@ -97,7 +97,8 @@ def ruby_prereqs_installation():
     """
     Installs Ruby prereqs
     """
-    sh('bundle install --quiet')
+    #sh('bundle install --quiet')
+    pass
 
 
 def node_prereqs_installation():
