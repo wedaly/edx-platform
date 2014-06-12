@@ -1,6 +1,4 @@
 tddium:
-  :hooks:
-    :early: "pip install -r requirements/edx/pre.txt"
   :python:
     :python_version: 2.7
     :pip_requirements_file: "requirements/edx/solano.txt"
@@ -10,7 +8,6 @@ tddium:
       - requirements/edx/github.txt
       - requirements/edx/local.txt
       - requirements/edx/post.txt
-      - requirements/edx/pre.txt
       - package.json
       - Gemfile
   #:mongodb:
