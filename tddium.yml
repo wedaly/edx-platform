@@ -2,6 +2,8 @@ tddium:
   :python:
     :python_version: 2.7
     :pip_requirements_file: "requirements/edx/solano.txt"
+  :hooks:
+    :worker_setup: "pip install -r requirements/edx/post.txt"
   :cache:
     :key_paths:
       - requirements/edx/base.txt
