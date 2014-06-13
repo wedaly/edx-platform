@@ -16,8 +16,6 @@ tddium:
     :version: "2.4.7"
   :mysql:
     :version: "5.5"
-  :memcached:
-    :version: "1.4.7"
   :python:
     :python_version: "2.7"
   :tests:
