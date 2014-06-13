@@ -13,18 +13,18 @@ tddium:
       - package.json
   :mongodb:
     :version: "2.4.7"
-  #:mysql:
-  #  :version: "5.5"
-  #:memcached:
-  #  :version: "1.4.7"
+  :mysql:
+    :version: "5.5"
+  :memcached:
+    :version: "1.4.7"
   :python:
     :python_version: "2.7"
   :tests:
     - paver test_lib
     - paver test_system -s lms
     - paver test_system -s cms
+    - rake test:acceptance:lms["-v 3 --tag shard_1"]
     #- paver test_js
-    #- rake test:acceptance:lms["-v 3 --tag shard_${SHARD}"]
     #- rake test:acceptance:cms["-v 3 --tag shard_${SHARD}"]
     #- rake test:bok_choy --lms
     #- rake test:bok_choy --studio
