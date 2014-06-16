@@ -21,8 +21,8 @@ tddium:
   :headless: true
   :tests:
     - paver test_lib
-    #- paver test_system -s lms
-    #- paver test_system -s cms
+    - paver test_system -s lms
+    - paver test_system -s cms
     - rake test:acceptance:lms[lms/djangoapps/courseware/features/navigation.feature]
     #- paver test_js
     #- rake test:acceptance:cms["-v 3 --tag shard_${SHARD}"]
