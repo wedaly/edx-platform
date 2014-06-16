@@ -18,6 +18,7 @@ tddium:
     :version: "5.5"
   :python:
     :python_version: "2.7"
+  :headless: true
   :tests:
     #- paver test_lib
     #- paver test_system -s lms
