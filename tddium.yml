@@ -20,7 +20,7 @@ tddium:
     :python_version: "2.7"
   :headless: true
   :tests:
-    #- paver test_lib
+    - paver test_lib
     #- paver test_system -s lms
     #- paver test_system -s cms
     - rake test:acceptance:lms[lms/djangoapps/courseware/features/navigation.feature]
