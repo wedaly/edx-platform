@@ -1,4 +1,5 @@
 tddium:
+  :firefox: 25.0
   :timeout: 2400
   :timeout_hook: 900
   :hooks:
