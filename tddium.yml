@@ -1,6 +1,6 @@
 tddium:
   :firefox: 25.0.1
-  :chrome: 30.0
+  :chrome: 30.0.1599.101
   :timeout: 2400
   :timeout_hook: 900
   :hooks:
