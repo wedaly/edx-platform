@@ -23,10 +23,26 @@ tddium:
   :headless: true
   :tests:
     - paver test_lib
-    - paver test_system -s lms
-    - paver test_system -s cms
-    - rake test:acceptance:lms
-    #- paver test_js
-    - rake test:acceptance:cms
+    - type: junit
+      mode: basic
+      output: exit-status
+      command: paver test_system -s lms
+      report_files: reports/lms/nosetests.xml
+    - type: junit
+      mode: basic
+      output: exit-status
+      command: paver test_system -s cms
+      report_files: reports/cms/cms.xml
+    - type: junit
+      mode: basic
+      output: exit-status
+      command: rake test:acceptance:lms
+      report_files: reports/acceptance/lms.xml
+    - type: junit
+      mode: basic
+      output: exit-status
+      command: rake test:acceptance:cms
+      report_files: reports/acceptance/cms.xml
+    - paver test_js
     #- rake test:bok_choy --lms
     #- rake test:bok_choy --studio
