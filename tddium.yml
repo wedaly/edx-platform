@@ -1,6 +1,5 @@
 tddium:
   :firefox: 25.0.1
-  :chrome: 30.0.1599.101
   :timeout: 2400
   :timeout_hook: 900
   :hooks:
@@ -23,26 +22,10 @@ tddium:
   :headless: true
   :tests:
     - paver test_lib
-    - type: junit
-      mode: basic
-      output: exit-status
-      command: paver test_system -s lms
-      report_files: reports/lms/nosetests.xml
-    - type: junit
-      mode: basic
-      output: exit-status
-      command: paver test_system -s cms
-      report_files: reports/cms/cms.xml
-    - type: junit
-      mode: basic
-      output: exit-status
-      command: rake test:acceptance:lms
-      report_files: reports/acceptance/lms.xml
-    - type: junit
-      mode: basic
-      output: exit-status
-      command: rake test:acceptance:cms
-      report_files: reports/acceptance/cms.xml
+    - paver test_system -s lms
+    - paver test_system -s cms
+    - rake test:acceptance:lms
+    - rake test:acceptance:cms
     - paver test_js
     #- rake test:bok_choy --lms
     #- rake test:bok_choy --studio
