@@ -25,17 +25,17 @@ tddium:
       mode: basic
       output: exit-status
       command: paver test_system -s lms
-      report_files: ["reports/lms/nosetests.xml"]
+      report_files: "reports/lms/nosetests.xml"
     - type: junit
       mode: basic
       output: exit-status
       command: paver test_system -s cms
-      report_files: ["reports/cms/*.xml"]
+      report_files: "reports/cms/*.xml"
     - paver test_lib
 #    - paver test_system -s lms
 #    - paver test_system -s cms
     - rake test:acceptance:lms
-    - rake test:acceptance:cms > $HOME/results/$TDDIUM_SESSION_ID/$TDDIUM_TEST_EXEC_ID/cms-acc-log.log
+    - rake test:acceptance:cms > $HOME/results/$TDDIUM_SESSION_ID/$TDDIUM_TEST_EXEC_ID/cms-acc-log.log 2>&1
     - paver test_js
     #- rake test:bok_choy --lms
     #- rake test:bok_choy --studio
