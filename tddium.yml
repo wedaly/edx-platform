@@ -26,7 +26,7 @@ tddium:
     #   output: exit-status
     #   command: paver test_system -s lms
     #   report_files: "reports/lms/nosetests.xml"
-    - type: custom
+    - type: junit
       :mode: basic
       :output: exit-status
       :command: paver test_system -s cms
