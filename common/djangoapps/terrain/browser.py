@@ -124,7 +124,8 @@ def initial_setup(server):
             raise IOError("Could not acquire valid {driver} browser session.".format(driver=browser_driver))
 
         world.absorb(0, 'IMPLICIT_WAIT')
-        world.browser.driver.set_window_size(1280, 1024)
+        # world.browser.driver.set_window_size(1280, 1024)
+        world.browser.driver.maximize_window()
 
     elif world.LETTUCE_SELENIUM_CLIENT == 'saucelabs':
         config = get_saucelabs_username_and_key()
