@@ -23,41 +23,41 @@ tddium:
   :java:
     :java_version: "java-7-openjdk"
   :tests:
-    - :type: junit
-      :mode: basic
-      :command: paver test_python
-      :invocation: single
-      :output: exit-status
-      :report_files:
-      - "reports/cms/nosetests.xml"
-      - "reports/common/lib/capa/nosetests.xml"
-      - "reports/common/lib/calc/nosetests.xml"
-      - "reports/common/lib/chem/nosetests.xml"
-      - "reports/common/lib/sandbox-packages/nosetests.xml"
-      - "reports/common/lib/symmath/nosetests.xml"
-      - "reports/common/lib/xmodule/nosetests.xml"
-      - "reports/lms/nosetests.xml"
-    - :type: junit
-      :mode: basic
-      :command: paver test_js
-      :invocation: single
-      :output: exit-status
-      :report_files:
-      - "reports/javascript/javascript_xunit.xml"
-    - :type: junit
-      :mode: basic
-      :command: rake test:acceptance:lms["-v 3 --tag shard_1"]
-      :invocation: single
-      :output: exit-status
-      :report_files:
-      - "reports/acceptance/lms.xml"
-    - :type: junit
-      :mode: basic
-      :command: rake test:acceptance:lms["-v 3 --tag shard_2"]
-      :invocation: single
-      :output: exit-status
-      :report_files:
-      - "reports/acceptance/lms.xml"
+    # - :type: junit
+    #   :mode: basic
+    #   :command: paver test_python
+    #   :invocation: single
+    #   :output: exit-status
+    #   :report_files:
+    #   - "reports/cms/nosetests.xml"
+    #   - "reports/common/lib/capa/nosetests.xml"
+    #   - "reports/common/lib/calc/nosetests.xml"
+    #   - "reports/common/lib/chem/nosetests.xml"
+    #   - "reports/common/lib/sandbox-packages/nosetests.xml"
+    #   - "reports/common/lib/symmath/nosetests.xml"
+    #   - "reports/common/lib/xmodule/nosetests.xml"
+    #   - "reports/lms/nosetests.xml"
+    # - :type: junit
+    #   :mode: basic
+    #   :command: paver test_js
+    #   :invocation: single
+    #   :output: exit-status
+    #   :report_files:
+    #   - "reports/javascript/javascript_xunit.xml"
+    # - :type: junit
+    #   :mode: basic
+    #   :command: rake test:acceptance:lms["-v 3 --tag shard_1"]
+    #   :invocation: single
+    #   :output: exit-status
+    #   :report_files:
+    #   - "reports/acceptance/lms.xml"
+    # - :type: junit
+    #   :mode: basic
+    #   :command: rake test:acceptance:lms["-v 3 --tag shard_2"]
+    #   :invocation: single
+    #   :output: exit-status
+    #   :report_files:
+    #   - "reports/acceptance/lms.xml"
     - :type: junit
       :mode: basic
       :command: rake test:acceptance:cms["-v 3 --tag shard_1"]
@@ -79,10 +79,10 @@ tddium:
       :output: exit-status
       :report_files:
       - "reports/acceptance/cms.xml"
-    - :type: junit
-      :mode: basic
-      :command: paver test_bokchoy
-      :invocation: single
-      :output: exit-status
-      :report_files:
-      - "reports/bok_choy/xunit.xml"
+    # - :type: junit
+    #   :mode: basic
+    #   :command: paver test_bokchoy
+    #   :invocation: single
+    #   :output: exit-status
+    #   :report_files:
+    #   - "reports/bok_choy/xunit.xml"

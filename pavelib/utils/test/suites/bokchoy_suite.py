@@ -39,9 +39,9 @@ class BokChoyTestSuite(TestSuite):
         self.report_dir.makedirs_p()
         test_utils.clean_reports_dir()
 
-        msg = colorize('green', "Checking for mongo, memchache, and mysql...")
-        print(msg)
-        bokchoy_utils.check_services()
+        # msg = colorize('green', "Checking for mongo, memchache, and mysql...")
+        # print(msg)
+        # bokchoy_utils.check_services()
 
         if not self.fasttest:
             # Process assets and set up database for bok-choy tests
