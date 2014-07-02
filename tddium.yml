@@ -86,5 +86,3 @@ tddium:
       :output: exit-status
       :report_files:
       - "reports/bok_choy/xunit.xml"
-
-#  - rake test:acceptance:cms > $HOME/results/$TDDIUM_SESSION_ID/$TDDIUM_TEST_EXEC_ID/cms-acc-log.log 2>&1
