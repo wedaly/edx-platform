@@ -1,6 +1,6 @@
 tddium:
   :environment: 
-    'DISPLAY':':1'
+    DISPLAY: ':1'
   :firefox: 25.0.1
   :timeout: 3600
   :timeout_hook: 900
