@@ -134,6 +134,7 @@ def test_python(options):
     make_option("--verbose", action="store_const", const=2, dest="verbosity"),
     make_option("-q", "--quiet", action="store_const", const=0, dest="verbosity"),
     make_option("-v", "--verbosity", action="count", dest="verbosity", default=1),
+    ("coverage", "c", "produce coverage reports when tests are finished")
 ])
 def test(options):
     """
@@ -149,6 +150,9 @@ def test(options):
     # Main suite to be run
     all_unittests_suite = suites.TestSuite('All Tests', subsuites=[js_suite, python_suite])
     all_unittests_suite.run()
+
+    if getattr(options, 'coverage', False):
+        coverage()
 
 
 @task

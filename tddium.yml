@@ -5,7 +5,6 @@ tddium:
   :hooks:
     :pre_setup: "virtualenv $HOME/python-env && $HOME/python-env/bin/pip install -r requirements/edx/paver.txt && $HOME/python-env/bin/pip install -r requirements/edx/pre.txt && $HOME/python-env/bin/pip install -r requirements/edx/base.txt && $HOME/python-env/bin/pip install -r requirements/edx/github.txt && $HOME/python-env/bin/pip install -r requirements/edx/local.txt && $HOME/python-env/bin/pip install -r requirements/edx/post.txt"
     :post_worker: "for i in $(find test_root/log reports/ -name *.png -o -name *.html); do cp $i $HOME/results/$TDDIUM_SESSION_ID/session/; done"
-    # :post_build: "paver coverage"
   :cache:
     :key_paths:
       - requirements/edx/paver.txt
@@ -31,7 +30,7 @@ tddium:
       :output: exit-status
     - :type: junit
       :mode: basic
-      :command: paver test
+      :command: paver test -c
       :invocation: single
       :output: exit-status
       :report_files:
