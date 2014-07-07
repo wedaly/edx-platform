@@ -47,14 +47,14 @@ tddium:
     #   - "reports/javascript/javascript_xunit.xml"
     # - :type: junit
     #   :mode: basic
-    #   :command: rake test:acceptance:cms["-v 3 --tag shard_1"]
+    #   :command: rake test:acceptance:lms["-v 3 --tag shard_1"]
     #   :invocation: single
     #   :output: exit-status
     #   :report_files:
-    #   - "reports/acceptance/cms.xml"
+    #   - "reports/acceptance/lms.xml"
     # - :type: junit
     #   :mode: basic
-    #   :command: rake test:acceptance:cms["-v 3 --tag shard_2"]
+    #   :command: rake test:acceptance:lms["-v 3 --tag shard_2"]
     #   :invocation: single
     #   :output: exit-status
     #   :report_files:
