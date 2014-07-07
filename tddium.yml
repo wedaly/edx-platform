@@ -1,11 +1,10 @@
 tddium:
-  :firefox: 25.0.1
+  :firefox: 27.0.1
   :timeout: 3600
   :timeout_hook: 900
   :hooks:
     :pre_setup: "virtualenv $HOME/python-env && $HOME/python-env/bin/pip install -r requirements/edx/paver.txt && $HOME/python-env/bin/pip install -r requirements/edx/pre.txt && $HOME/python-env/bin/pip install -r requirements/edx/base.txt && $HOME/python-env/bin/pip install -r requirements/edx/github.txt && $HOME/python-env/bin/pip install -r requirements/edx/local.txt && $HOME/python-env/bin/pip install -r requirements/edx/post.txt"
-    # :post_worker: "for i in $(find test_root/log reports -name *.png -o -name diff_quality -o -name cover); do cp -r $i $HOME/results/$TDDIUM_SESSION_ID/session/; done"
-    :post_worker: "for i in $(find test_root/log -name *.png); do cp -r $i $HOME/results/$TDDIUM_SESSION_ID/$TDDIUM_TEST_EXEC_ID/; done"
+    :post_worker: "for i in $(find test_root/log reports -name *.png -o -name diff_quality -o -name cover); do cp -r $i $HOME/results/$TDDIUM_SESSION_ID/session/; done"
   :cache:
     :key_paths:
       - requirements/edx/paver.txt
@@ -25,46 +24,46 @@ tddium:
   :java:
     :java_version: "java-7-openjdk"
   :tests:
-    # - :type: custom
-    #   :command: paver run_quality
-    #   :invocation: single
-    #   :output: exit-status
-    # - :type: junit
-    #   :mode: basic
-    #   :command: paver test -c
-    #   :invocation: single
-    #   :output: exit-status
-    #   :report_files:
-    #   - "reports/cms/nosetests.xml"
-    #   - "reports/common/lib/capa/nosetests.xml"
-    #   - "reports/common/lib/calc/nosetests.xml"
-    #   - "reports/common/lib/chem/nosetests.xml"
-    #   - "reports/common/lib/sandbox-packages/nosetests.xml"
-    #   - "reports/common/lib/symmath/nosetests.xml"
-    #   - "reports/common/lib/xmodule/nosetests.xml"
-    #   - "reports/lms/nosetests.xml"
-    #   - "reports/javascript/javascript_xunit.xml"
-    # - :type: junit
-    #   :mode: basic
-    #   :command: rake test:acceptance:lms["-v 3 --tag shard_1"]
-    #   :invocation: single
-    #   :output: exit-status
-    #   :report_files:
-    #   - "reports/acceptance/lms.xml"
-    # - :type: junit
-    #   :mode: basic
-    #   :command: rake test:acceptance:lms["-v 3 --tag shard_2"]
-    #   :invocation: single
-    #   :output: exit-status
-    #   :report_files:
-    #   - "reports/acceptance/lms.xml"
-    # - :type: junit
-    #   :mode: basic
-    #   :command: rake test:acceptance:cms["-v 3 --tag shard_1"]
-    #   :invocation: single
-    #   :output: exit-status
-    #   :report_files:
-    #   - "reports/acceptance/cms.xml"
+    - :type: custom
+      :command: paver run_quality
+      :invocation: single
+      :output: exit-status
+    - :type: junit
+      :mode: basic
+      :command: paver test -c
+      :invocation: single
+      :output: exit-status
+      :report_files:
+      - "reports/cms/nosetests.xml"
+      - "reports/common/lib/capa/nosetests.xml"
+      - "reports/common/lib/calc/nosetests.xml"
+      - "reports/common/lib/chem/nosetests.xml"
+      - "reports/common/lib/sandbox-packages/nosetests.xml"
+      - "reports/common/lib/symmath/nosetests.xml"
+      - "reports/common/lib/xmodule/nosetests.xml"
+      - "reports/lms/nosetests.xml"
+      - "reports/javascript/javascript_xunit.xml"
+    - :type: junit
+      :mode: basic
+      :command: rake test:acceptance:lms["-v 3 --tag shard_1"]
+      :invocation: single
+      :output: exit-status
+      :report_files:
+      - "reports/acceptance/lms.xml"
+    - :type: junit
+      :mode: basic
+      :command: rake test:acceptance:lms["-v 3 --tag shard_2"]
+      :invocation: single
+      :output: exit-status
+      :report_files:
+      - "reports/acceptance/lms.xml"
+    - :type: junit
+      :mode: basic
+      :command: rake test:acceptance:cms["-v 3 --tag shard_1"]
+      :invocation: single
+      :output: exit-status
+      :report_files:
+      - "reports/acceptance/cms.xml"
     - :type: junit
       :mode: basic
       :command: rake test:acceptance:cms["-v 3 --tag shard_2"]
@@ -79,10 +78,10 @@ tddium:
       :output: exit-status
       :report_files:
       - "reports/acceptance/cms.xml"
-    # - :type: junit
-    #   :mode: basic
-    #   :command: paver test_bokchoy
-    #   :invocation: single
-    #   :output: exit-status
-    #   :report_files:
-    #   - "reports/bok_choy/xunit.xml"
+    - :type: junit
+      :mode: basic
+      :command: paver test_bokchoy
+      :invocation: single
+      :output: exit-status
+      :report_files:
+      - "reports/bok_choy/xunit.xml"
