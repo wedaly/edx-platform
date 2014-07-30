@@ -87,7 +87,14 @@ tddium:
       - "reports/acceptance/cms.xml"
     - :type: junit
       :mode: basic
-      :command: paver test_bokchoy
+      :command: paver test_bokchoy --extra_args="-a shard_1"
+      :invocation: single
+      :output: exit-status
+      :report_files:
+      - "reports/bok_choy/xunit.xml"
+    - :type: junit
+      :mode: basic
+      :command: paver test_bokchoy --extra_args="-a '!shard_1'"
       :invocation: single
       :output: exit-status
       :report_files:
