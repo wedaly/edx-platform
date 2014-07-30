@@ -402,7 +402,8 @@ class TestSysadmin(SysadminBaseTestCase):
 
 
 @override_settings(MONGODB_LOG=TEST_MONGODB_LOG)
-@unittest.skip("skipping for solano POC")
+@unittest.skipUnless(settings.FEATURES.get('ENABLE_SYSADMIN_DASHBOARD'),
+                     "ENABLE_SYSADMIN_DASHBOARD not set")
 class TestSysAdminMongoCourseImport(SysadminBaseTestCase):
     """
     Check that importing into the mongo module store works
