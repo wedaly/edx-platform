@@ -35,35 +35,35 @@ tddium:
       :output: exit-status
       :report_files:
       - "reports/diff_quality/diff_quality_pylint.html"
+    - :type: junit
+      :mode: basic
+      :command: "mkdir -p jscover-dist && wget http://files.edx.org/testeng/JSCover-1.0.2.zip -P jscover-dist && unzip jscover-dist/JSCover-1.0.2.zip -d jscover-dist/ && cp jscover-dist/target/dist/JSCover-all.jar jscover-dist && export JSCOVER_JAR=$PWD/jscover-dist/JSCover-all.jar && paver test"
+      :invocation: single
+      :output: exit-status
+      :report_files:
+      - "reports/cms/nosetests.xml"
+      - "reports/common/lib/capa/nosetests.xml"
+      - "reports/common/lib/calc/nosetests.xml"
+      - "reports/common/lib/chem/nosetests.xml"
+      - "reports/common/lib/sandbox-packages/nosetests.xml"
+      - "reports/common/lib/symmath/nosetests.xml"
+      - "reports/common/lib/xmodule/nosetests.xml"
+      - "reports/lms/nosetests.xml"
+      - "reports/javascript/javascript_xunit.xml"
     # - :type: junit
     #   :mode: basic
-    #   :command: paver test -c
+    #   :command: rake test:acceptance:lms["-v 3 --tag shard_1"]
     #   :invocation: single
     #   :output: exit-status
     #   :report_files:
-    #   - "reports/cms/nosetests.xml"
-    #   - "reports/common/lib/capa/nosetests.xml"
-    #   - "reports/common/lib/calc/nosetests.xml"
-    #   - "reports/common/lib/chem/nosetests.xml"
-    #   - "reports/common/lib/sandbox-packages/nosetests.xml"
-    #   - "reports/common/lib/symmath/nosetests.xml"
-    #   - "reports/common/lib/xmodule/nosetests.xml"
-    #   - "reports/lms/nosetests.xml"
-    #   - "reports/javascript/javascript_xunit.xml"
-    - :type: junit
-      :mode: basic
-      :command: rake test:acceptance:lms["-v 3 --tag shard_1"]
-      :invocation: single
-      :output: exit-status
-      :report_files:
-      - "reports/acceptance/lms.xml"
-    - :type: junit
-      :mode: basic
-      :command: rake test:acceptance:lms["-v 3 --tag shard_2"]
-      :invocation: single
-      :output: exit-status
-      :report_files:
-      - "reports/acceptance/lms.xml"
+    #   - "reports/acceptance/lms.xml"
+    # - :type: junit
+    #   :mode: basic
+    #   :command: rake test:acceptance:lms["-v 3 --tag shard_2"]
+    #   :invocation: single
+    #   :output: exit-status
+    #   :report_files:
+    #   - "reports/acceptance/lms.xml"
     # - :type: junit
     #   :mode: basic
     #   :command: rake test:acceptance:cms["-v 3 --tag shard_1"]
